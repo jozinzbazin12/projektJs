@@ -1,0 +1,54 @@
+{
+"data":[
+	{"id":1,
+	"klasa":1,
+	"literka":"A",
+	"profil":"MAT-INF",
+	"uczniowe":[
+		{"id":1,
+		"imie":"Andrzej",
+		"nazwisko":"Kowalewski",
+		"wiek": 13,
+		"numer": 321
+		},
+		{"id": 2,
+		"imie":"Stefan",
+		"nazwisko":"Gnuj",
+		"wiek": 23,
+		"numer": 31
+		},
+		{"id":3,
+		"imie":"Zbigniew",
+		"nazwisko":"Twojastara",
+		"wiek": 18,
+		"numer": 123
+		}]},
+	{"id":2,
+		"klasa":1,
+		"literka":"B",
+		"profil":"FIZ-HIST",
+		"uczniowe":[
+			{"id":4,
+			"imie":"Popek",
+			"nazwisko":"Popko",
+			"wiek": 22,
+			"numer": 233
+			},
+			{"id": 5,
+			"imie":"Panas",
+			"nazwisko":"Panas",
+			"wiek": 21,
+			"numer":55
+			},
+			{"id":6,
+			"imie":"Baros",
+			"nazwisko":"Panasewicz",
+			"wiek": 14,
+			"numer": 173
+			}]}
+	
+],
+"autoIncrementKlasy":3,
+"autoIncrementLudzie":7
+
+}

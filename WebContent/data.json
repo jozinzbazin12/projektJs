@@ -1,0 +1,23 @@
+{
+"data":[
+	{"id":1,
+	"imie":"Andrzej",
+	"nazwisko":"Kowalewski",
+	"wiek": 13,
+	"numer": 321
+	},
+	{"id": 2,
+	"imie":"Stefan",
+	"nazwisko":"Gnuj",
+	"wiek": 23,
+	"numer": 31
+	},
+	{"id":3,
+	"imie":"Zbigniew",
+	"nazwisko":"Twojastara",
+	"wiek": 18,
+	"numer": 123
+	}
+],
+"autoIncrement":4
+}
