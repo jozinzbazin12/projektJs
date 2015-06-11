@@ -4,7 +4,7 @@ angular.module('app').controller('klasyController', function($http, $scope, $mod
 	$scope.edit = -1;
 	$scope.backupData = undefined;
 	$scope.init = function() {
-		$http.get('data2.json').success(function(result) {
+		$http.get('http://localhost:8080/klasy').success(function(result) {
 			console.log(result.data);
 			$scope.ai = result.autoIncrementKlasy;
 			$scope.aiU = result.autoIncrementLudzie;
@@ -51,7 +51,8 @@ angular.module('app').controller('klasyController', function($http, $scope, $mod
 		$scope.table[$scope.findIndex(arg.id)] = arg;
 		$scope.backupData = undefined;
 		$scope.edit = -1;
-		// $http.$post("zapisz klase",arg);
+		var data={data:arg, autoIncrement:ai};
+		// $http.$post("zapisz klase",data);
 	};
 
 	$scope.nowy = function() {

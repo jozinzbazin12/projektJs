@@ -46,7 +46,8 @@ angular.module('app').controller('uczniowieController', function($http, $scope, 
 		$scope.table[$scope.findIndex(arg.id)] = arg;
 		$scope.backupData = undefined;
 		$scope.edit = -1;
-		// $http.$post("zapisz ucznia",arg);
+		var data={data:arg, autoIncrement:ai};
+		// $http.$post("zapisz ucznia",data);
 	};
 
 	$scope.nowy = function() {
