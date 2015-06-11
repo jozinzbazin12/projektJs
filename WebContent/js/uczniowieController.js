@@ -1,14 +1,17 @@
-angular.module('app').controller('uczniowieController', function($http, $scope, $modalInstance) {
-	$scope.table = [];
+angular.module('app').controller('uczniowieController', function($http, $scope, items, $modal, $modalInstance) {
 	$scope.ai = 0;
 	$scope.edit = -1;
 	$scope.backupData = undefined;
 
+	$scope.table = items[0];
+	$scope.ai = items[1];
+	
 	$scope.usun = function(arg) {
 		if (confirm("Na pewno chcesz to usunąc?")) {
 			$scope.table.splice($scope.table.indexOf(arg), 1);
 			$scope.edit = -1;
 			$scope.backupData = undefined;
+			// $http.$post("usun ucznia",arg);
 		}
 	};
 
@@ -43,13 +46,19 @@ angular.module('app').controller('uczniowieController', function($http, $scope, 
 		$scope.table[$scope.findIndex(arg.id)] = arg;
 		$scope.backupData = undefined;
 		$scope.edit = -1;
+		// $http.$post("zapisz ucznia",arg);
 	};
 
 	$scope.nowy = function() {
+		console.log($scope.table);
 		var obj = {
 			"id" : $scope.ai++
 		};
 		$scope.table.push(obj);
 		return $scope.table.length - 1;
+	};
+	$scope.zamknij = function() {
+		//$scope.rollback();
+		$modalInstance.close();
 	}
 });

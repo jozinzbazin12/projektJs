@@ -4,7 +4,7 @@
 	"klasa":1,
 	"literka":"A",
 	"profil":"MAT-INF",
-	"uczniowe":[
+	"uczniowie":[
 		{"id":1,
 		"imie":"Andrzej",
 		"nazwisko":"Kowalewski",
@@ -27,7 +27,7 @@
 		"klasa":1,
 		"literka":"B",
 		"profil":"FIZ-HIST",
-		"uczniowe":[
+		"uczniowie":[
 			{"id":4,
 			"imie":"Popek",
 			"nazwisko":"Popko",

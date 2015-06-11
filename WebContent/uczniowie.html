@@ -1,40 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<div class="modal-header">
+	<h1>Uczniowie</h1>
+	<div class="modal-body">
+		<form>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>ImiÄ™</th>
+						<th>Nazwisko</th>
+						<th>Wiek</th>
+						<th>Numer w Dzienniku</th>
+						<th>Edytuj</th>
+						<th>UsuÅ„</th>
+					</tr>
+				</thead>
+				<tbody>
 
-<div class="container" ng-controller="uczniowieController" ng-init="init()">
-	<h1>Klasy</h1>
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th>ID</th>
-				<th>Imiê</th>
-				<th>Nazwisko</th>
-				<th>Wiek</th>
-				<th>Numer w Dzienniku</th>
-				<th>Edytuj</th>
-				<th>Usuñ</th>
-			</tr>
-		</thead>
-		<tbody>
+					<tr ng-repeat="uczen in table track by uczen.id">
+						<td>{{uczen.id}}</td>
+						<td><span ng-hide="edit===$index">{{uczen.imie}}</span> <input class="form-control" ng-show="edit===$index" type="text"
+								ng-model="uczen.imie" placeHolder="ImiÄ™" required></td>
+						<td><span ng-hide="edit===$index">{{uczen.nazwisko}}</span> <input class="form-control" ng-show="edit===$index" type="text"
+								ng-model="uczen.nazwisko" placeHolder="Nazwisko" required></td>
+						<td><span ng-hide="edit===$index" required>{{uczen.wiek}}</span> <input class="form-control" ng-show="edit===$index"
+								type="number" min="0" ng-model="uczen.wiek" placeHolder="Wiek" required></td>
+						<td><span ng-hide="edit===$index" required>{{uczen.numer}}</span> <input class="form-control" ng-show="edit===$index" min="0"
+								type="number" ng-model="uczen.numer" placeHolder="Numer w Dzienniku" required></td>
 
-			<tr ng-repeat="uczen in uczniowie track by uczen.id">
-				<td>{{uczen.id}}</td>
-				<td><span ng-hide="edit===$index">{{uczen.imie}}</span> <input class="form-control" ng-show="edit===$index" type="text"
-						 ng-model="uczen.imie" placeHolder="Imiê" required></td>
-				<td><span ng-hide="edit===$index">{{uczen.nazwisko}}</span> <input class="form-control" ng-show="edit===$index"
-						type="text" ng-model="uczen.nazwisko" placeHolder="Nazwisko" required></td>
-				<td><span ng-hide="edit===$index" required>{{uczen.wiek}}</span> <input class="form-control" ng-show="edit===$index"
-						type="number" string-to-number ng-model="uczen.wiek" placeHolder="Wiek" required></td>
-				<td><span ng-hide="edit===$index" required>{{uczen.numer}}</span> <input class="form-control" ng-show="edit===$index"
-						type="number" string-to-number ng-model="uczen.numer" placeHolder="Numer w Dzienniku" required></td>
-
-				<td><button ng-disabled="edit===$index" class="btn btn-medium btn-primary" ng-click="wiecej($index);">Wiêcej</button></td>
-				<td><button ng-hide="edit===$index" class="btn btn-medium btn-primary" ng-click="backup($index);">Edytuj</button>
-					<button ng-show="edit===$index" class="btn btn-medium btn-warning" ng-click="zapisz(klasa);">Zapisz</button></td>
-				<td><button ng-hide="edit===$index" class="btn btn-medium btn-danger" ng-click="usun(klasa);">Usuñ</button>
-					<button ng-show="edit===$index" class="btn btn-medium btn-primary" ng-click="rollback();">Anuluj</button></td>
-			</tr>
-		</tbody>
-	</table>
-	<button class="btn btn-large btn-info" ng-click="edit=nowy(); " ng-show="edit===-1">Dodaj Nowego Ucznia</button>
+						<td><button ng-hide="edit===$index" class="btn btn-medium btn-primary" ng-click="backup($index);">Edytuj</button>
+							<button ng-show="edit===$index" class="btn btn-medium btn-warning" ng-click="zapisz(uczen);">Zapisz</button></td>
+						<td><button ng-hide="edit===$index" class="btn btn-medium btn-danger" ng-click="usun(uczen);">UsuÅ„</button>
+							<button ng-show="edit===$index" class="btn btn-medium btn-primary" ng-click="rollback();">Anuluj</button></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-large btn-info" ng-click="edit=nowy(); " ng-show="edit===-1">Dodaj Nowego Ucznia</button>
+		<button class="btn btn-large btn-info" ng-click="zamknij() ">Zamknij</button>
+	</div>
 </div>
 </body>
 
