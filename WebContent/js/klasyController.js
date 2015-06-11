@@ -76,38 +76,3 @@ angular.module('app').controller('klasyController', function($http, $scope, $mod
 	};
 
 });
-
-angular.module('app').controller('InterviewModalInstanceCtrl2', function($scope, $modalInstance, items, $http) {
-	$scope.interview = items;
-	$scope.backup = {};
-	$scope.newPhase = {};
-
-	$scope.init = function() {
-		$scope.backup = JSON.stringify(items);
-	};
-	$scope.chooseUser = function() {
-		var modalInstance = $modal.open({
-			templateUrl : 'views/interview_new/chooseUser.html',
-			controller : 'UserChooserController',
-			size : 'lg',
-			resolve : {
-				items : function() {
-					return $scope.interview.interviewee;
-				}
-			}
-		}).result.then(function(result) {
-			$scope.interview.interviewee = result;
-		});
-	};
-
-	$scope.ok = function() {
-		$modalInstance.close();
-	};
-
-	$scope.cancel = function() {
-		var tmp = JSON.parse($scope.backup);
-		$scope.interview.interviewPhases = tmp.interviewPhases;
-		$scope.interview.interviewee = tmp.interviewee;
-		$modalInstance.dismiss('cancel');
-	};
-});
